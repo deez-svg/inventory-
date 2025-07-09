@@ -1,0 +1,16 @@
+<% @materials.each do |material| %>
+  <div class="flex justify--space-between w-100p test-class">
+    <div>
+      <label>Name: </label>
+      <div><%= material.name %></div>
+    </div>
+    <div>
+      <label>Min: </label>
+      <div><%= material.stock.minimum %> <%= material.unit %> </div>
+    </div>
+    <div>
+      <label>Name: </label>
+      <div><%= material.stock.current %> <%= material.unit %> </div>
+    </div>
+  </div>
+<% end %>
