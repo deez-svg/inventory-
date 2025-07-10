@@ -1,16 +1,29 @@
-<% @materials.each do |material| %>
-  <div class="flex justify--space-between w-100p test-class">
-    <div>
-      <label>Name: </label>
-      <div><%= material.name %></div>
-    </div>
-    <div>
-      <label>Min: </label>
-      <div><%= material.stock.minimum %> <%= material.unit %> </div>
-    </div>
-    <div>
-      <label>Name: </label>
-      <div><%= material.stock.current %> <%= material.unit %> </div>
+<div class="p-20-40">
+  <h1>Settings</h1>
+  <div class="p-10-20 bg-color-white" border="1 solid color-border rad-5">
+    <h2>Materials Management</h2>
+    <div class="flex gap-20">
+      <% @materials.each do |material| %>
+        <div class="p-20 inline-block" border="1 solid color-border">
+          <h3 class="m-0-0-20"><%= material.name %></h3>
+          <div class="flex gap-60 w-100p align-center">
+            <div>
+              <label class="color-secondary-text">current</label>
+              <div><%= material.stock.current %> <%= material.unit %> </div>
+            </div>
+            <div>
+              <label class="color-secondary-text">Min Value</label>
+              <div><%= material.stock.minimum %> <%= material.unit %> </div>
+            </div>
+            <div>
+              <div border="rad-25"
+                   class="<%= material.stock.status == "good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %> color-white p-2-10">
+                     <%= material.stock.status %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>

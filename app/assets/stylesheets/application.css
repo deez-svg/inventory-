@@ -8,3 +8,15 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root {
+  font-family: "Reddit Sans", sans-serif;
+  background-color: #f9fafb;
+
+  /* colors */
+  --white: white;
+  --border: #f4f6f9;
+  --secondary-text: #565f6c;
+  --good-status-bg: green;
+  --bad-status-bg: red;
+}

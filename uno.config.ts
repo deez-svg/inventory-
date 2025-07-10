@@ -96,6 +96,7 @@ export default defineConfig({
     [/^justify--([a-z-]+)$/, ([, alignment]) => ({ 'justify-content': alignment })],
     [/^(row|column)$/, ([, direction]) => ({ 'flex-direction': direction })],
     [/^(wrap|nowrap)$/, ([, wrap]) => ({ 'flex-wrap': wrap })],
+    [/^gap-(\d+)(\w{1,3})?$/, ([, value, unit]) => ({ gap: `${value}${mapUnit(unit)}` })],
 
     // display rules
     ['inline-block', { display: 'inline-block' }],
@@ -182,12 +183,8 @@ export default defineConfig({
       };
     }],
 
-    [/^border-(top|bottom|left|right)?-?color-([A-Za-z0-9]+)?$/, ([, side, color]) => {
-      if (isHexColor(`#${color}`)) {
-        return { [`${borderSideMap(side)}color`]: `#${color}` };
-      } else {
-        return { [`${borderSideMap(side)}color`]: color };
-      }
+    [/^border-(top|bottom|left|right)?-?color-([-a-z]+)?$/, ([, side, color]) => {
+      return { [`${borderSideMap(side)}color`]: `var(--${color})` };
     }],
 
     [/^border-rad-(\d+)(\w{1,3})?$/, ([, value, unit]) => {
