@@ -1,13 +1,13 @@
 class Stock < ApplicationRecord
   belongs_to :material
 
-  validates :minimum, :current, comparison: { greater_than_or_equal_to: 0 }
+  validates :minimum, :current, :value, comparison: { greater_than_or_equal_to: 0 }
 
   def status
     if current > minimum
-      "good"
+      "Good"
     else
-      "bad"
+      "Need Refill"
     end
   end
 end

@@ -17,7 +17,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_142614) do
   create_table "ingredients", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "material_id"
-    t.float "quantity"
+    t.decimal "quantity", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["material_id"], name: "index_ingredients_on_material_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_142614) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
-    t.float "quantity", null: false
+    t.decimal "quantity", precision: 10, scale: 2, null: false
     t.string "unit", null: false
     t.integer "kind", null: false
     t.datetime "created_at", null: false
@@ -44,8 +44,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_142614) do
 
   create_table "stocks", force: :cascade do |t|
     t.bigint "material_id"
-    t.float "minimum", null: false
-    t.float "current", default: 0.0, null: false
+    t.decimal "minimum", precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal "current", precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal "value", precision: 10, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["material_id"], name: "index_stocks_on_material_id", unique: true
@@ -53,7 +54,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_142614) do
 
   create_table "transactions", force: :cascade do |t|
     t.bigint "material_id"
-    t.float "quantity", null: false
+    t.decimal "quantity", precision: 10, scale: 2, null: false
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

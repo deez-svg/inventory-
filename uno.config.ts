@@ -1,5 +1,4 @@
-import { defineConfig } from 'unocss';
-import presetMini from '@unocss/preset-mini'
+import { defineConfig, presetAttributify, presetMini } from 'unocss';
 import boxRules from './unocss/box.rules';
 import displayRules from './unocss/display.rules';
 import positionRules from './unocss/position.rules';
@@ -18,7 +17,7 @@ export default defineConfig({
     ...animationRules,
     ...staticRules
   ],
-  presets: [presetMini()],
+  presets: [presetMini(), presetAttributify()],
   variants: [
     (matcher) => {
       if (matcher.startsWith('strict:')) {

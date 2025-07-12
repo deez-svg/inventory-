@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "new_material" do %>
+  <h3>Add New Material</h3>
+  <%= render partial: "form", locals: { material: @material, commit: "Create" } %>
+<% end %>

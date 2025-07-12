@@ -3,7 +3,7 @@ class CreateIngredients < ActiveRecord::Migration[8.0]
     create_table :ingredients do |t|
       t.belongs_to :recipe
       t.references :material
-      t.float :quantity
+      t.decimal :quantity, precision: 10, scale: 2, null: false
 
       t.timestamps
     end

@@ -1,0 +1,9 @@
+:root {
+  --white: white;
+  --border: #E2E8F0;
+  --secondary-text: #565f6c;
+  --good-status-bg: green;
+  --bad-status-bg: red;
+  --foreground: black;
+  --form-background: #eff6ff;
+}

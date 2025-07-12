@@ -3,19 +3,19 @@ import { mapUnit } from "./helper";
 
 export default [
   // Font rules
-  [/^fs-([0-9.]+)(\w{1,3})?$/, ([, value, unit]: string[]) => {
+  [/^font-s-([0-9.]+)(\w{1,3})?$/, ([, value, unit]: string[]) => {
     return {
       'font-size': `${value}${mapUnit(unit)}`,
     };
   }],
 
-  [/^fw-([a-z0-9]+)$/, ([, value]: string[]) => {
+  [/^font-w-([a-z0-9]+)$/, ([, value]: string[]) => {
     return {
       'font-weight': value,
     };
   }],
 
-  [/^ff-(.+)$/, ([, name]: string[]) => {
+  [/^font-f-(.+)$/, ([, name]: string[]) => {
     return { ['font-family']: name }
   }],
 

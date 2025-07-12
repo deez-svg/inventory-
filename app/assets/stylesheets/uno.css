@@ -1,25 +1,90 @@
+/* layer: preflights */
+*,::before,::after{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-ring-offset-shadow:0 0 rgb(0 0 0 / 0);--un-ring-shadow:0 0 rgb(0 0 0 / 0);--un-shadow-inset: ;--un-shadow:0 0 rgb(0 0 0 / 0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgb(147 197 253 / 0.5);}::backdrop{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-ring-offset-shadow:0 0 rgb(0 0 0 / 0);--un-ring-shadow:0 0 rgb(0 0 0 / 0);--un-shadow-inset: ;--un-shadow:0 0 rgb(0 0 0 / 0);--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgb(147 197 253 / 0.5);}
 /* layer: default */
-.m-0-0-20{margin:0px 0px 20px;}
-.p-10-20{padding:10px 20px;}
+.inline{display:inline;}
+.flex-wrap,
+[flex-wrap=""]{flex-wrap:wrap;}
+.border,
+[border~="\31 "]{border-width:1px;}
+.font-s-1rem,
+.font-size-1rem,
+[font-s-1rem=""],
+[font-size-1rem=""]{font-size:1rem;}
+.mb-20{margin-bottom:20px;}
+.mb-28{margin-bottom:28px;}
+.mb-8,
+[mb-8=""]{margin-bottom:8px;}
+.mt-30,
+[mt-30=""]{margin-top:30px;}
+.m-0{margin:0px;}
+.p-10-20,
+[p-10-20=""]{padding:10px 20px;}
 .p-2-10{padding:2px 10px;}
 .p-20{padding:20px;}
 .p-20-40{padding:20px 40px;}
-.w-100p{width:100%;}
-.flex{display:flex;}
-.align-center{align-items:center;}
-.gap-20{gap:20px;}
-.gap-60{gap:60px;}
-.inline-block{display:inline-block;}
-[border~="\31 "]{border-width:1px;}
+.p-4-8,
+[p-4-8=""]{padding:4px 8px;}
+.p-6-12,
+[p-6-12=""]{padding:6px 12px;}
+.w-100,
+[w-100~="\,"]{width:100px;}
+.w-100p,
+[w-100p=""]{width:100%;}
+.w-75,
+[w-75=""]{width:75px;}
+.max-needed-width{width:max-content;}
+.no-outline,
+[no-outline=""]{outline:none;}
+.border-none,
+[border-none=""]{border:none;}
 [border~="solid"]{border-style:solid;}
+.border-color-foreground,
+[border-color-foreground=""]{border-color:var(--foreground);}
 [border~="color-border"]{border-color:var(--border);}
-[border~="rad-25"]{border-radius:25px;}
+.border-rad-4,
+[border~="rad-4"]{border-radius:4px;}
+.border-rad-5,
+[border-rad-5=""],
 [border~="rad-5"]{border-radius:5px;}
+.flex,
+[flex=""]{display:flex;}
+.align-i-center{align-items:center;}
+.align-s-end{align-self:end;}
+.gap-10{gap:10px;}
+.gap-20{gap:20px;}
+.gap-30,
+[gap-30=""]{gap:30px;}
+.gap-40,
+[gap-40=""]{gap:40px;}
+.gap-5{gap:5px;}
+.gap-60{gap:60px;}
+.gap-90{gap:90px;}
+.inline-block,
+[inline-block=""]{display:inline-block;}
+.block,
+[block=""]{display:block;}
+.pointer,
+[pointer=""]{cursor:pointer;}
 .color-border{color:var(--border);}
-.color-secondary-text{color:var(--secondary-text);}
-.color-white{color:var(--white);}
+.color-foreground,
+[color-foreground=""]{color:var(--foreground);}
+.color-secondary-text,
+[color-secondary-text=""]{color:var(--secondary-text);}
+.color-white,
+[color-white=""]{color:var(--white);}
 .bg-color-bad-status-bg{background-color:var(--bad-status-bg);}
+.bg-color-foreground,
+[bg-color-foreground=""]{background-color:var(--foreground);}
+.bg-color-form-background{background-color:var(--form-background);}
 .bg-color-good-status-bg{background-color:var(--good-status-bg);}
-.bg-color-white{background-color:var(--white);}
+.bg-color-white,
+[bg-color-white=""]{background-color:var(--white);}
+[bg-color-bad-status-bg~="align-s-end"]{background-color:var(--bad-status-bg-align-s-end);}
+[bg-color-bad-status-bg~="border-rad-4"]{background-color:var(--bad-status-bg-border-rad-4);}
 [bg-color-bad-status-bg~="color-white"]{background-color:var(--bad-status-bg-color-white);}
 [bg-color-bad-status-bg~="p-2-10"]{background-color:var(--bad-status-bg-p-2-10);}
+[font~="s-0\.85rem"]{font-size:0.85rem;}
+[font~="s-0\.9rem"]{font-size:0.9rem;}
+.font-w-500,
+[font-w-500=""]{font-weight:500;}
+.common-shadow{box-shadow:0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);}
