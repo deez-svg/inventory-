@@ -2,29 +2,23 @@
   <div class="p-20 max-needed-width inline-block common-shadow" border="1 solid color-border rad-4">
     <div class="flex gap-90">
       <div>
-        <div class="flex mb-28 gap-20 align-i-center">
-          <h3 class="m-0 inline-block"><%= material.name %></h3>
-          <div class="<%= material.stock.status == "Good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %>
-                      border-rad-4 color-white p-2-10 align-s-end" font="s-0.85rem">
-                <%= material.stock.status %>
-          </div>
-        </div>
-        <div class="flex gap-60 w-100p align-i-center">
+        <h3 class="m-0-0-44 inline-block"><%= material.name %></h3>
+        <div class="flex column gap-30 w-100p">
           <div>
-            <label class="color-secondary-text" font="s-0.9rem">current stock</label>
-            <div><%= material.stock.current %> <%= material.unit %> </div>
+            <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">current stock</label>
+            <div font="w-600 s-1.1rem"><%= material.stock.current %> <%= material.unit %> </div>
           </div>
           <div>
-            <label class="color-secondary-text" font="s-0.9rem">Minimum Stock Level</label>
-            <div><%= material.stock.minimum %> <%= material.unit %> </div>
+            <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Minimum Stock Level</label>
+            <div font="w-600"><%= material.stock.minimum %> <%= material.unit %> </div>
           </div>
           <div>
-            <label class="color-secondary-text" font="s-0.9rem">Total Value</label>
-            <div>₹ <%= material.stock.value %></div>
+            <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Total Value</label>
+            <div class="color-money" font="w-600">₹ <%= material.stock.value %></div>
           </div>
         </div>
       </div>
-      <div>
+      <div class="flex column just-c-space-between">
         <div class="flex gap-10">
           <%= button_to 'Edit', edit_material_path(material), method: :get,
                         class: "bg-color-foreground color-white p-6-12 \
@@ -35,6 +29,15 @@
                         class: "bg-color-white color-foreground p-6-12 \
                                 border-color-foreground font-s-1rem pointer",
                         border: "1 solid" %>
+        </div>
+        <div>
+          <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Status</label>
+          <div>
+            <span class="<%= material.stock.status == "Good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %>
+                        border-rad-4 color-white p-2-10 " font="s-0.85rem">
+              <%= material.stock.status %>
+            </span>
+          </div>
         </div>
       </div>
     </div>

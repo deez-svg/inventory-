@@ -61,23 +61,23 @@ export default [
   // Border rules
   ['border-none', { border: 'none' }],
 
-  [/^border-(t|r|b|l)?-?(\d+)(\w{1,3})?$/, ([, side, value, unit]: string[]) => {
+  [/^(?:border|bd)-(t|r|b|l)?-?(\d+)(\w{1,3})?$/, ([, side, value, unit]: string[]) => {
     return { [`${borderSideMap(side)}width`]: `${value}${mapUnit(unit)}` };
   }],
 
-  [/^border-(t|r|b|l)?-?(solid|none)$/, ([, side, style]: string[]) => {
+  [/^(?:border|bd)-(t|r|b|l)?-?(solid|none)$/, ([, side, style]: string[]) => {
     return { [`${borderSideMap(side)}style`]: style };
   }],
 
-  [/^border-(t|r|b|l)?-?color-([-a-z]+)?$/, ([, side, color]: string[]) => {
+  [/^(?:border|bd)-(t|r|b|l)?-?color-([-a-z]+)?$/, ([, side, color]: string[]) => {
     return { [`${borderSideMap(side)}color`]: `var(--${color})` };
   }],
 
-  [/^border-rad-(\d+)(\w{1,3})?$/, ([, value, unit]: string[]) => {
+  [/^(?:border|bd)-rad-(\d+)(\w{1,3})?$/, ([, value, unit]: string[]) => {
     return { 'border-radius': `${value}${mapUnit(unit)}` };
   }],
 
-  [/^border-rad-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?$/,
+  [/^(?:border|bd)-rad-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?-(\d+)(\w{1,3})?$/,
     ([, v1, u1, v2, u2, v3, u3, v4, u4]: string[]) => {
       return { 'border-radius': `${v1}${mapUnit(u1)} ${v2}${mapUnit(u2)} ${v3}${mapUnit(u3)} ${v4}${mapUnit(u4)}` };
     }

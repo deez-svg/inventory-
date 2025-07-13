@@ -9,4 +9,5 @@ class Material < ApplicationRecord
   UNITS = ['kg', 'g', 'l', 'ml']
 
   validates :name, :unit, presence: true
+  validates :name, uniqueness: { case_sensitive: false }
 end

@@ -3,7 +3,7 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.includes(:stock)
-                         .order(:created_at)
+                         .order(:name)
                          .strict_loading.all
   end
 

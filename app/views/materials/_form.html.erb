@@ -1,46 +1,58 @@
 <div class="p-20 inline-block bg-color-form-background common-shadow" border="1 solid color-border rad-4">
   <%= form_with(model: material, local: true) do |form| %>
-    <div class="flex gap-40">
+    <div class="flex gap-68">
       <div>
-        <div class="mb-20">
-          <div class="flex gap-20 align-i-center">
+        <div class="mb-35">
             <%= form.text_field :name, placeholder: "Name",
-                                class: "no-outline p-4-8 font-s-1rem font-w-500 w-100",
-                                border: "1 solid color-foreground rad-6", required: true %>
-            <div>
-              <%= form.label :unit, "Unit:", class: "color-secondary-text" %>
-              <%= form.select :unit, Material::UNITS %>
-            </div>
-          </div>
+                                class: "no-outline p-4-8 font-s-1.1rem font-w-500 w-100 bd-1 bd-solid bd-color-foreground",
+                                required: true %>
         </div>
-        <div class ="flex gap-30 w-100p align-center">
+        <div class ="flex column gap-27 w-100p">
           <%= form.fields_for :stock do |stock_form| %>
             <div>
-              <%= stock_form.label :current, "Current Stock", class: "color-secondary-text inline-block mb-8" %>
+              <%= stock_form.label :current, "Current Stock", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
               <br/>
-              <%= stock_form.number_field :current, class: "block w-75 no-outline", min: 0, step: 0.1 %>
+              <%= stock_form.number_field :current, class: "block w-75 no-outline font-s-1rem", min: 0, step: 0.1 %>
             </div>
 
             <div>
-              <%= stock_form.label :minimum, "Minimum Stock Level", class: "color-secondary-text inline-block mb-8" %>
-              <%= stock_form.number_field :minimum, class: "block w-75 no-outline", min: 0, step: 0.1, required: true %>
+              <%= stock_form.label :minimum, "Minimum Stock Level", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
+              <%= stock_form.number_field :minimum, class: "block w-75 no-outline font-s-1rem", min: 0, step: 0.1, required: true %>
             </div>
 
             <div>
-              <%= stock_form.label :value, "Current Stock Cost", class: "color-secondary-text inline-block mb-8" %>
-              <%= stock_form.number_field :value, class: "block w-75 no-outline", min: 0, required: true %>
+              <%= stock_form.label :value, "Current Stock Cost", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
+              <%= stock_form.number_field :value, class: "block w-90 no-outline font-s-1rem", min: 0, required: true %>
             </div>
           <% end %>
         </div>
       </div>
-      <div>
-        <div class="flex gap-5">
-          <%= form.submit commit, class: "bg-color-foreground color-white p-6-12 \
-                                            border-color-foreground font-size-1rem",
-                                    border: "1 solid" %>
-          <%= link_to "Cancel", materials_path, class: "bg-color-white color-foreground p-6-12 \
-                                                          border-color-foreground",
-                                                border: "1 solid" %>
+      <div class="flex column just-c-space-between">
+        <div>
+          <div class="flex gap-5 mb-18">
+            <%= form.submit commit, class: "bg-color-foreground color-white p-6-12 \
+                                              border-color-foreground font-size-1rem",
+                                      border: "1 solid" %>
+            <%= link_to "Cancel", materials_path, class: "bg-color-white color-foreground p-6-12 \
+                                                            border-color-foreground",
+                                                  border: "1 solid" %>
+          </div>
+          <%= turbo_frame_tag "material_errors" do %>
+            <div class="color-error-text w-158px">
+              <% if material.errors.present? %>
+                <div font="s-0.9rem w-600">Error:</div>
+                <ul class="pl-16 m-6-0">
+                <% material.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+                </ul>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div>
+          <%= form.label :unit, "Unit:", class: "color-secondary-text inline-block mb-6 font-s-0.9rem" %>
+          <%= form.select :unit, Material::UNITS, {}, {class: "block font-s-1rem"} %>
         </div>
       </div>
     </div>

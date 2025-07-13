@@ -2,8 +2,10 @@
   --white: white;
   --border: #E2E8F0;
   --secondary-text: #565f6c;
-  --good-status-bg: green;
+  --good-status-bg: #16a34a;
   --bad-status-bg: red;
   --foreground: black;
   --form-background: #eff6ff;
+  --money: #16a34a;
+  --error-text: red;
 }
