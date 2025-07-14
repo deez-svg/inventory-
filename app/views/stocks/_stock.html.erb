@@ -1,0 +1,36 @@
+<%= turbo_frame_tag dom_id(stock) do %>
+  <div class="p-16 flex column gap-16" border="1 solid color-border rad-4">
+    <h3 class="m-0"><%= stock.material.name %></h3>
+    <div class="flex gap-16p align-i-center">
+      <div>
+        <label class="color-secondary-text inline-block">Current Stock</label>
+        <div class="font-w-600 font-s-1.2rem"><%= stock.current %><%= stock.material.unit %></div>
+      </div>
+      <div>
+        <label class="color-secondary-text inline-block">Minimum Stock Level</label>
+        <div class="font-w-600"><%= stock.minimum %><%= stock.material.unit %></div>
+      </div>
+      <div>
+        <label class="color-secondary-text inline-block">Total Value</label>
+        <div class="font-w-600 color-money">₹ <%= stock.value %></div>
+      </div>
+      <div>
+        <div>
+          <span class="<%= stock.status == "Good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %>
+                      border-rad-4 color-white p-2-10 " font="s-0.85rem">
+            <%= stock.status %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label class="color-secondary-text inline-block font-s-0.8rem mb-4">Stock Level</label>
+      <div class="w-100p h-10 relative" border="1 solid color-secondary-text rad-25">
+        <div class="w-50p h-100p bg-color-stock-bar border-rad-25"></div>
+      </div>
+    </div>
+    <div class="color-secondary-text font-s-0.8rem">
+      Last updated: <%= stock.updated_at.strftime("%d/%m/%Y, %I:%M:%S %p") %>
+    </div>
+  </div>
+<% end %>

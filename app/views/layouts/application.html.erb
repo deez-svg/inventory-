@@ -26,6 +26,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="flex row">
+      <div class="w-20p h-100vh bg-color-nav-bg nav-shadow relative" border="1 solid color-border">
+        <h2 class="p-20 m-0">Inventory Pro</h2>
+        <hr/>
+        <nav>
+          <ul>
+            <li>Materials</li>
+            <li>Inventory</li>
+            <li>Production</li>
+            <li>Dashboard</li>
+          </ul>
+        </nav>
+      </div>
+      <main class="w-80p"><%= yield %></main>
+    </div>
   </body>
 </html>

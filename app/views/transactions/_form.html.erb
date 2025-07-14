@@ -1,0 +1,28 @@
+<%= form_with(model: Transaction.new, local: true, html: { autocomplete: "off" }) do |form| %>
+  <div class="flex column gap-18">
+    <div>
+      <%= form.label :material_id, "Select Material",
+                     class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
+      <%= form.select :material_id, materials_drop_down,
+                      { include_blank: true, prompt: "Choose Material..." },
+                      { class: "block font-s-1rem w-100p p-4-10", required: true } %>
+    </div>
+    <div>
+      <%= form.label :quantity, "Quantity to Add",
+                     class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
+      <%= form.number_field :quantity, placeholder: "Enter quantity", required: true, min: 1,
+                            class: "block w-[calc(100%-26px)] p-6-12 bd-1 bd-solid \
+                                    bd-rad-2 no-outline font-s-1rem" %>
+    </div>
+    <div>
+      <%= form.label :price, "Purchase Price",
+                     class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
+      <%= form.number_field :price, placeholder: "Enter purchase price", required: true, min: 1,
+                            class: "block w-[calc(100%-26px)] p-6-12 bd-1 bd-solid \
+                                    bd-rad-2 no-outline font-s-1rem" %>
+    </div>
+  </div>
+  <%= form.submit "Add to Inventory", class: "bg-color-foreground w-100p p-10-12 font-s-1rem \
+                                              pointer bd-rad-8 m-24-0 border-none color-white",
+                                      data: { turbo_frame: "stocks" } %>
+<% end %>
