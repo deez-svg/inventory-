@@ -24,6 +24,7 @@
 .mt-24{margin-top:24px;}
 .mt-30,
 [mt-30=""]{margin-top:30px;}
+.mt-4{margin-top:4px;}
 .pb-24{padding-bottom:24px;}
 .pl-16{padding-left:16px;}
 .m-0{margin:0px;}
@@ -36,15 +37,15 @@
 .p-10-20,
 [p-10-20=""]{padding:10px 20px;}
 .p-16{padding:16px;}
-.p-2-10{padding:2px 10px;}
 .p-20{padding:20px;}
 .p-24{padding:24px;}
-.p-4-10,
-[p-4-10=""]{padding:4px 10px;}
+.p-4-10{padding:4px 10px;}
 .p-4-8,
 [p-4-8=""]{padding:4px 8px;}
+.p-5-10{padding:5px 10px;}
 .p-6-12,
 [p-6-12=""]{padding:6px 12px;}
+[p-4-10~="required\:"]:required{padding:4px 10px;}
 .h-10{height:10px;}
 .h-100p{height:100%;}
 .h-100vh{height:100vh;}
@@ -56,7 +57,6 @@
 .w-20p{width:20%;}
 .w-25p{width:25%;}
 .w-300{width:300px;}
-.w-50p{width:50%;}
 .w-600{width:600px;}
 .w-68p{width:68%;}
 .w-75,
@@ -78,6 +78,7 @@
 [border-color-foreground=""]{border-color:var(--foreground);}
 [border~="color-border"]{border-color:var(--border);}
 [border~="color-secondary-text"]{border-color:var(--secondary-text);}
+.bd-rad-10{border-radius:10px;}
 .bd-rad-2,
 [bd-rad-2=""]{border-radius:2px;}
 .bd-rad-8,
@@ -116,6 +117,7 @@
 [inline-block=""]{display:inline-block;}
 .block,
 [block=""]{display:block;}
+.no-display{display:none;}
 .pointer,
 [pointer=""]{cursor:pointer;}
 .relative{position:relative;}
@@ -124,6 +126,8 @@
 .color-foreground,
 [color-foreground=""]{color:var(--foreground);}
 .color-money{color:var(--money);}
+.color-price-form-preview{color:var(--price-form-preview);}
+.color-quantity-form-preview{color:var(--quantity-form-preview);}
 .color-secondary-text,
 [color-secondary-text=""]{color:var(--secondary-text);}
 .color-white,
@@ -134,12 +138,11 @@
 .bg-color-form-background{background-color:var(--form-background);}
 .bg-color-good-status-bg{background-color:var(--good-status-bg);}
 .bg-color-nav-bg{background-color:var(--nav-bg);}
-.bg-color-stock-bar{background-color:var(--stock-bar);}
 .bg-color-white,
 [bg-color-white=""]{background-color:var(--white);}
 [bg-color-bad-status-bg~="border-rad-4"]{background-color:var(--bad-status-bg-border-rad-4);}
 [bg-color-bad-status-bg~="color-white"]{background-color:var(--bad-status-bg-color-white);}
-[bg-color-bad-status-bg~="p-2-10"]{background-color:var(--bad-status-bg-p-2-10);}
+[bg-color-bad-status-bg~="p-5-10"]{background-color:var(--bad-status-bg-p-5-10);}
 .font-s-0\.8rem{font-size:0.8rem;}
 .font-s-0\.9rem,
 [font-s-0\.9rem=""],

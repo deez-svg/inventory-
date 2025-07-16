@@ -1,25 +1,41 @@
-<%= form_with(model: Transaction.new, local: true, html: { autocomplete: "off" }) do |form| %>
+<%= form_with(model: Transaction.new, local: true,
+              html: { autocomplete: "off" },
+              data: { controller: 'transaction-form',
+                      transaction_form_stock_outlet: ".stock" }) do |form| %>
   <div class="flex column gap-18">
     <div>
       <%= form.label :material_id, "Select Material",
                      class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
       <%= form.select :material_id, materials_drop_down,
                       { include_blank: true, prompt: "Choose Material..." },
-                      { class: "block font-s-1rem w-100p p-4-10", required: true } %>
+                      { class: "block font-s-1rem w-100p p-4-10", required: true,
+                        data: { transaction_form_target: "material",
+                                action: 'change->transaction-form#updateUnit change->transaction-form#updatePreview'} } %>
     </div>
     <div>
       <%= form.label :quantity, "Quantity to Add",
                      class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
-      <%= form.number_field :quantity, placeholder: "Enter quantity", required: true, min: 1,
+      <%= form.number_field :quantity, placeholder: "Enter quantity", required: true, step: "any",
                             class: "block w-[calc(100%-26px)] p-6-12 bd-1 bd-solid \
-                                    bd-rad-2 no-outline font-s-1rem" %>
+                                    bd-rad-2 no-outline font-s-1rem",
+                            data: { transaction_form_target: "quantity",
+                                    action: 'input->transaction-form#updatePreview' } %>
+      <div class="color-secondary-text font-s-0.9rem mt-4" data-transaction-form-target="unit"></div>
     </div>
     <div>
       <%= form.label :price, "Purchase Price",
                      class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
-      <%= form.number_field :price, placeholder: "Enter purchase price", required: true, min: 1,
+      <%= form.number_field :price, placeholder: "Enter purchase price", required: true, min: 1, step: "any",
                             class: "block w-[calc(100%-26px)] p-6-12 bd-1 bd-solid \
-                                    bd-rad-2 no-outline font-s-1rem" %>
+                                    bd-rad-2 no-outline font-s-1rem",
+                            data: { transaction_form_target: "price",
+                                    action: 'input->transaction-form#updatePreview' } %>
+    </div>
+    <div class="bg-color-form-background p-16 bd-rad-10 no-display column gap-10" data-transaction-form-target="preview">
+      <label class="font-s-0.9rem font-w-500 inline-block mb-8">Stock Update Preview:</label>
+      <div class="color-secondary-text" data-transaction-form-target="materialPreview">Sugar</div>
+      <div class="color-quantity-form-preview" data-transaction-form-target="quantityPreview">Stock: 42->83</div>
+      <div class="color-price-form-preview" data-transaction-form-target="pricePreview">Purchase Cost: 3435.0->4354.0</div>
     </div>
   </div>
   <%= form.submit "Add to Inventory", class: "bg-color-foreground w-100p p-10-12 font-s-1rem \

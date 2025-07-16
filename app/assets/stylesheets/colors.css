@@ -3,11 +3,14 @@
   --border: #E2E8F0;
   --secondary-text: #565f6c;
   --good-status-bg: #16a34a;
-  --bad-status-bg: red;
+  --bad-status-bg: orange;
   --foreground: black;
   --form-background: #eff6ff;
   --money: #16a34a;
   --error-text: red;
   --nav-bg: white;
-  --stock-bar: #22c55e;
+  --stock-bar-full: #22c55e;
+  --stock-bar-low: orange;
+  --quantity-form-preview: #2564eb;
+  --price-form-preview: #16a34a;
 }

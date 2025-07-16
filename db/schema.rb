@@ -55,7 +55,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_142614) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "material_id"
     t.decimal "quantity", precision: 10, scale: 2, null: false
-    t.integer "price", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["material_id"], name: "index_transactions_on_material_id"
