@@ -13,4 +13,7 @@
   --stock-bar-low: orange;
   --quantity-form-preview: #2564eb;
   --price-form-preview: #16a34a;
+  --active-nav-item-bg: #dbeafe;
+  --active-nav-item-fg: #1d4ed8;
+  --nav-item-hover: #f3f4f6;
 }

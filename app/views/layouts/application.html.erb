@@ -26,20 +26,24 @@
   </head>
 
   <body>
-    <div class="flex row">
-      <div class="w-20p h-100vh bg-color-nav-bg nav-shadow relative" border="1 solid color-border">
-        <h2 class="p-20 m-0">Inventory Pro</h2>
-        <hr/>
+    <div>
+      <div class="w-20p fixed h-100vh bg-color-nav-bg nav-shadow" border="1 solid color-border">
+        <h2 class="p-20 m-0" border-b="1 solid color-border">Inventory Pro</h2>
         <nav>
-          <ul>
-            <li>Materials</li>
-            <li>Inventory</li>
-            <li>Production</li>
-            <li>Dashboard</li>
+          <ul class="no-dots flex column gap-8 p-20" font="s-1.2rem">
+            <li>
+              <%= link_to "Materials", materials_path, class: params[:controller] == 'materials' ? 'current-nav-item' : 'nav-item'  %>
+            </li>
+            <li>
+              <%= link_to "Inventory", stocks_path, class: params[:controller] == 'stocks' ? 'current-nav-item' : 'nav-item' %>
+            </li>
+            <li class="nav-item">Recipes</li>
+            <li class="nav-item">Production</li>
+            <li class="nav-item">Dashboard</li>
           </ul>
         </nav>
       </div>
-      <main class="w-80p"><%= yield %></main>
+      <main class="w-80p ml-20p"><%= yield %></main>
     </div>
   </body>
 </html>

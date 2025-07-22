@@ -6,6 +6,7 @@ import colorRules from './unocss/color.rules';
 import typographyRules from './unocss/typography.rules';
 import animationRules from './unocss/animation.rules';
 import staticRules from './unocss/static.rules';
+import listRules from './unocss/list.rules';
 
 export default defineConfig({
   rules: [
@@ -15,9 +16,14 @@ export default defineConfig({
     ...colorRules,
     ...typographyRules,
     ...animationRules,
-    ...staticRules
+    ...staticRules,
+    ...listRules
   ],
   presets: [presetMini(), presetAttributify()],
+  shortcuts: [
+    { "nav-item": "p-16 hover:bg-color-nav-item-hover pointer bd-rad-10 block color-black" },
+    { "current-nav-item": "p-16 bg-color-active-nav-item-bg pointer bd-rad-10 block strict:color-active-nav-item-fg bd-r-3 bd-r-solid bd-r-color-active-nav-item-fg" }
+  ],
   variants: [
     (matcher) => {
       if (matcher.startsWith('strict:')) {

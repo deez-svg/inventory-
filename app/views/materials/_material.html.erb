@@ -30,14 +30,12 @@
                                 border-color-foreground font-s-1rem pointer",
                         border: "1 solid" %>
         </div>
-        <div>
-          <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Status</label>
-          <div>
+        <div class="flex align-i-baseline just-c-center">
+          <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Status:&ensp;&ensp;</label>
             <span class="<%= material.stock.status == "Good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %>
-                        border-rad-4 color-white p-5-10 " font="s-0.85rem">
+                        border-rad-4 color-white p-5-10 " font="s-0.75rem">
               <%= material.stock.status %>
             </span>
-          </div>
         </div>
       </div>
     </div>
