@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -37,7 +37,9 @@
             <li>
               <%= link_to "Inventory", stocks_path, class: params[:controller] == 'stocks' ? 'current-nav-item' : 'nav-item' %>
             </li>
-            <li class="nav-item">Recipes</li>
+            <li>
+              <%= link_to "Recipes", recipe_path(1), class: params[:controller] == 'recipes' ? 'current-nav-item' : 'nav-item' %>
+            </li>
             <li class="nav-item">Production</li>
             <li class="nav-item">Dashboard</li>
           </ul>

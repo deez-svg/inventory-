@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :materials, except: [ :show ]
   resources :stocks, only: [ :index ]
   resources :transactions, only: [ :create ]
+  resources :recipes, only: [ :show ]
 end

@@ -7,7 +7,7 @@
                                 class: "no-outline p-4-8 font-s-1.1rem font-w-500 w-100 bd-1 bd-solid bd-color-foreground",
                                 required: true %>
         </div>
-        <div class ="flex column gap-27 w-100p">
+        <div class="flex column gap-27 w-100p">
           <%= form.fields_for :stock do |stock_form| %>
             <div>
               <%= stock_form.label :current, "Current Stock", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
@@ -52,7 +52,7 @@
         </div>
         <div>
           <%= form.label :unit, "Unit:", class: "color-secondary-text inline-block mb-6 font-s-0.9rem" %>
-          <%= form.select :unit, Material::UNITS, {}, {class: "block font-s-1rem"} %>
+          <%= form.select :unit, options_for_select(Material::UNITS, selected: material.unit), {}, {class: "block font-s-1rem" } %>
         </div>
       </div>
     </div>

@@ -12,21 +12,21 @@
     <h3 class="m-0"><%= stock.material.name %></h3>
     <div class="flex gap-16p align-i-center">
       <div>
-        <label class="color-secondary-text inline-block">Current Stock</label>
+        <label class="color-secondary-text inline-block font-s-0.9rem">Current Stock</label>
         <div class="font-w-600 font-s-1.2rem"><%= stock.current %> <%= stock.material.unit %></div>
       </div>
       <div>
-        <label class="color-secondary-text inline-block">Minimum Stock Level</label>
+        <label class="color-secondary-text inline-block font-s-0.9rem">Minimum Stock Level</label>
         <div class="font-w-600"><%= stock.minimum %> <%= stock.material.unit %></div>
       </div>
       <div>
-        <label class="color-secondary-text inline-block">Total Value</label>
+        <label class="color-secondary-text inline-block font-s-0.9rem">Total Value</label>
         <div class="font-w-600 color-money">₹ <%= stock.value %></div>
       </div>
       <div>
         <div>
           <span class="<%= stock.status == "Good" ? "bg-color-good-status-bg" : "bg-color-bad-status-bg" %>
-                       border-rad-4 color-white p-5-10 " font="s-0.85rem">
+                       border-rad-4 color-white p-5-10 " font="s-0.9rem">
             <%= stock.status %>
           </span>
         </div>

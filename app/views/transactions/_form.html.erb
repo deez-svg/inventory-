@@ -15,7 +15,7 @@
     <div>
       <%= form.label :quantity, "Quantity to Add",
                      class: "font-s-0.9rem font-w-500 inline-block mb-8" %>
-      <%= form.number_field :quantity, placeholder: "Enter quantity", required: true, step: "any",
+      <%= form.number_field :quantity, placeholder: "Enter quantity", required: true, min: 1, step: "any",
                             class: "block w-[calc(100%-26px)] p-6-12 bd-1 bd-solid \
                                     bd-rad-2 no-outline font-s-1rem",
                             data: { transaction_form_target: "quantity",
