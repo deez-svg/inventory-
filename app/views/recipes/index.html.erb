@@ -1,0 +1,31 @@
+<div class="p-1.5rem">
+  <h1 class="m-0">Recipes</h1>
+  <div class="p-10-20-40 bg-color-white common-shadow mt-24" border="1 solid color-border rad-5">
+    <h2>Recipes Management</h2>
+    <div class="flex gap-16">
+      <button class="p-10-16 color-white bg-color-foreground" font="s-1rem w-500" border="none rad-8">Sweets</button>
+      <button class="p-10-16 bg-color-white" font="s-1rem w-500" border="1px solid color-border rad-8">Savouries</button>
+      <button class="p-10-16 bg-color-white" font="s-1rem w-500" border="1px solid color-border rad-8">Bakery</button>
+    </div>
+    <div class="p-10-20-40 mt-24" border="1 solid color-border rad-5">
+      <div class="flex align-i-center just-c-space-between p-10">
+        <h2 class="m-0">Sweets</h2>
+        <button class="p-10-16 bg-color-foreground color-white" font="s-1rem w-500" border="1px solid color-border rad-8">+ Add Sweet</button>
+      </div>
+      <div class="flex row gap-30 mt-24">
+        <% @recipes.each do |recipe| %>
+          <div class="p-20 common-shadow" border="1 solid color-border rad-5">
+            <div class="flex mb-20 gap-60 align-i-center just-c-space-between">
+              <h3 class="m-0"><%= recipe.name %> (<%= recipe.quantity %> <%= recipe.unit %>)</h3>
+              <div class="flex gap-10">
+                <button class="p-8-16 bg-color-foreground color-white" border="none rad-2">Edit</button>
+                <button class="p-8-16 bg-color-white" border="1px solid color-foreground rad-2">Delete</button>
+              </div>
+            </div>
+            <label class="color-secondary-text" font="s-0.9rem">Recipe: <%= recipe.ingredients.count %> ingredients</label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

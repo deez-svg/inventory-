@@ -14,13 +14,16 @@
 .bd-1,
 .border,
 [bd-1=""],
-[border~="\31 "]{border-width:1px;}
+[border~="\31 "],
+[border~="\31 px"]{border-width:1px;}
 .p-1\.5rem{padding:1.5rem;}
 .font-s-1rem,
 .font-size-1rem,
 [font-s-1rem=""],
-[font-size-1rem=""]{font-size:1rem;}
+[font-size-1rem=""],
+[font~="s-1rem"]{font-size:1rem;}
 .mb-18{margin-bottom:18px;}
+.mb-20{margin-bottom:20px;}
 .mb-35{margin-bottom:35px;}
 .mb-4{margin-bottom:4px;}
 .mb-40{margin-bottom:40px;}
@@ -42,8 +45,10 @@
 .m-6-0{margin:6px 0px;}
 .p-0-10{padding:0px 10px;}
 .p-0-5{padding:0px 5px;}
+.p-10{padding:10px;}
 .p-10-12,
 [p-10-12=""]{padding:10px 12px;}
+.p-10-16{padding:10px 16px;}
 .p-10-20,
 [p-10-20=""]{padding:10px 20px;}
 .p-10-20-40{padding:10px 20px 40px;}
@@ -58,6 +63,7 @@
 .p-5-10{padding:5px 10px;}
 .p-6-12,
 [p-6-12=""]{padding:6px 12px;}
+.p-8-16{padding:8px 16px;}
 [p-4-10~="required\:"]:required{padding:4px 10px;}
 .h-10{height:10px;}
 .h-100p{height:100%;}
@@ -70,6 +76,7 @@
 .w-20p{width:20%;}
 .w-25p{width:25%;}
 .w-300{width:300px;}
+.w-500{width:500px;}
 .w-600{width:600px;}
 .w-68p{width:68%;}
 .w-75,
@@ -81,7 +88,8 @@
 .no-outline,
 [no-outline=""]{outline:none;}
 .border-none,
-[border-none=""]{border:none;}
+[border-none=""],
+[border~="none"]{border:none;}
 [border-b~="\31 "]{border-bottom-width:1px;}
 .bd-solid,
 [bd-solid=""],
@@ -90,7 +98,8 @@
 .bd-color-foreground,
 .border-color-foreground,
 [bd-color-foreground=""],
-[border-color-foreground=""]{border-color:var(--foreground);}
+[border-color-foreground=""],
+[border~="color-foreground"]{border-color:var(--foreground);}
 .bd-color-white{border-color:var(--white);}
 [border-b~="color-border"]{border-bottom-color:var(--border);}
 [border~="color-border"]{border-color:var(--border);}
@@ -98,9 +107,11 @@
 .bd-rad-10,
 [border~="rad-10"]{border-radius:10px;}
 .bd-rad-2,
-[bd-rad-2=""]{border-radius:2px;}
+[bd-rad-2=""],
+[border~="rad-2"]{border-radius:2px;}
 .bd-rad-8,
-[bd-rad-8=""]{border-radius:8px;}
+[bd-rad-8=""],
+[border~="rad-8"]{border-radius:8px;}
 .border-rad-25,
 [border~="rad-25"]{border-radius:25px;}
 .border-rad-4,
@@ -131,6 +142,7 @@
 .gap-40,
 [gap-40=""]{gap:40px;}
 .gap-5{gap:5px;}
+.gap-60{gap:60px;}
 .gap-68{gap:68px;}
 .gap-70{gap:70px;}
 .gap-8{gap:8px;}
@@ -180,7 +192,8 @@
 [font~="s-0\.75rem"]{font-size:0.75rem;}
 [font~="s-1\.4rem"]{font-size:1.4rem;}
 .font-w-500,
-[font-w-500=""]{font-weight:500;}
+[font-w-500=""],
+[font~="w-500"]{font-weight:500;}
 .font-w-600,
 [font~="w-600"]{font-weight:600;}
 [font~="w-100"]{font-weight:100;}
