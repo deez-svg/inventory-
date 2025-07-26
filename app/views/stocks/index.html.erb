@@ -1,19 +1,23 @@
 <%= turbo_frame_tag "stocks", class: "flex column gap-24" do %>
   <div class="p-1.5rem relative">
-    <h1 class="m-0">Inventory Management</h1>
+    <h1 class="m-0" font="w-800">Inventory Management</h1>
     <div class="flex gap-20">
       <div class="p-24 bg-color-white common-shadow mt-24 w-25p align-s-baseline" border="1 solid color-border rad-5">
-        <h2 class="m-0 pb-24"><span font="w-300">+</span> Add Stock</h2>
+        <div class="flex align-i-center gap-8 pb-24">
+          <%= image_tag "icons/add-black.svg", alt: "add icon", class:"w-20" %>
+          <h2 class="m-0">Add Stock</h2>
+        </div>
         <%= turbo_frame_tag "new_transaction" do %>
           <%= render partial: "transactions/form" %>
         <% end %>
       </div>
       <div class="p-24 bg-color-white common-shadow mt-24 w-68p" border="1 solid color-border rad-5">
-        <h2 class="m-0 pb-24">Current Stock Levels</h2>
+        <div class="pb-24 flex gap-8 row align-i-center">
+          <%= image_tag "icons/material-black.svg", alt: "material icon", class:"w-20" %>
+          <h2 class="m-0">Current Stock Levels</h2>
+        </div>
         <div class="flex column gap-24">
-            <% @stocks.each do |stock| %>
-              <%= render partial: stock %>
-            <% end %>
+            <%= render partial: @stocks %>
         </div>
       </div>
     </div>

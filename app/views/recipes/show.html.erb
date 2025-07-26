@@ -1,34 +1,37 @@
-<div border="1 solid color-border rad-10" class="p-10-20-40">
-  <h3 class="color-secondary-text mb-40">Recipe#<%= @recipe.id %></h3>
-  <div class="p-0-10">
-  <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Name</label>
-  <h2 class="m-0"><%= @recipe.name %></h2>
-  </div>
-  <div class="flex row gap-70 p-30-10">
-    <div>
-      <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Quantity</label>
-      <h3 class="m-0"><%= @recipe.quantity %><%= @recipe.unit %></h3>
-    </div>
-    <div>
-      <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Type</label>
-      <h3 class="m-0"><%= @recipe.kind.capitalize %></h3>
-    </div>
-  </div>
-  <hr class="bd-color-white"/>
-  <div class="flex just-c-center w-100p">
-    <h4 class="bg-color-white color-secondary-text relative p-0-5 b-40 inline-block">Ingredients</h4>
-  </div>
-  <div class="flex gap-30">
-    <% @recipe.ingredients.each do %>
-      <div class="bg-color-nav-item-hover bd-rad-10 p-20-40 flex row w-100p align-i-center just-c-space-between">
-        <div font="s-1.1rem w-600">
-          <%= it.material.name %>
-        </div>
-        <div class="flex row gap-15 align-i-center">
-          <div font="s-1.4rem w-100">|</div>
-          <div><%= it.quantity %><%= it.material.unit %></div>
-        </div>
+<%= render layout: 'recipe_layout' do %>
+  <div border="1 solid color-border rad-10" class="p-10-20-40">
+    <div class="flex align-i-baseline just-c-space-between">
+      <%= link_to recipes_path, class: "color-secondary-text mb-20 block" do %>
+        <h3 class="flex align-i-center gap-8">
+          <%= image_tag("icons/back.svg", alt: "Back", class: "w-20") %>
+          Back
+        </h3>
+      <% end %>
+      <div class="flex align-i-center gap-8">
+        <%= button_to "Edit", edit_recipe_path(@recipe), method: :get, class: "p-6-12 black-button" %>
+        <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "p-6-12 white-button" %>
       </div>
-    <% end %>
+    </div>
+    <div class="p-0-10">
+    <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Name</label>
+    <h2 class="m-0"><%= @recipe.name %></h2>
+    </div>
+    <div class="flex row gap-70 p-30-10">
+      <div>
+        <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Quantity</label>
+        <h3 class="m-0"><%= @recipe.quantity %><%= @recipe.unit %></h3>
+      </div>
+      <div>
+        <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Type</label>
+        <h3 class="m-0"><%= @recipe.kind.capitalize %></h3>
+      </div>
+    </div>
+    <hr class="bd-color-white"/>
+    <div class="flex just-c-center w-100p -mb-20">
+      <h4 class="bg-color-white color-secondary-text relative p-0-5 b-40 inline-block">Ingredients</h4>
+    </div>
+    <div class="flex gap-30 flex-wrap">
+      <%= render partial: @recipe.ingredients %>
+    </div>
   </div>
-</div>
+<% end %>

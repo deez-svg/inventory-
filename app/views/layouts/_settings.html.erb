@@ -1,0 +1,14 @@
+<div class="p-1.5rem">
+  <h1 class="m-0 font-w-800">Settings</h1>
+  <div class="flex row gap-16 align-i-center mt-24">
+    <%= button_to materials_path, method: :get, class: "p-12-16 #{params[:controller] == "materials" ? "black-button" : "white-button"} gap-10", font: "s-1rem w-500" do %>
+      <%= image_tag "icons/material-#{params[:controller] == "materials" ? "white" : "black"}.svg", alt: "material icon", class:"w-16" %>
+      <span>Materials Management</span>
+    <% end %>
+    <%= button_to recipes_path, method: :get, class: "p-12-16 #{params[:controller] == "recipes" ? "black-button" : "white-button"} gap-10", font: "s-1rem w-500" do %>
+      <%= image_tag "icons/recipe-#{params[:controller] == "recipes" ? "white" : "black"}.svg", alt: "recipe icon", class:"w-16" %>
+      <span>Recipe Management</span>
+    <% end %>
+  </div>
+  <%= yield %>
+</div>

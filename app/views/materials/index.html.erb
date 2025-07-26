@@ -1,16 +1,19 @@
-<div class="p-1.5rem">
-  <h1 class="m-0">Settings</h1>
-  <div class="p-10-20 bg-color-white common-shadow mt-24" border="1 solid color-border rad-5">
-    <h2>Materials Management</h2>
+<%= render layout: 'layouts/settings' do %>
+  <div class="p-10-20-40 bg-color-white common-shadow mt-24" border="1 solid color-border rad-5">
+    <div class="flex gap-8 row align-i-center">
+      <%= image_tag "icons/material-black.svg", alt: "material icon", class:"w-20" %>
+      <h2>Materials Management</h2>
+    </div>
     <%= turbo_frame_tag "new_material" do %>
-      <%= button_to "+ Add Material", new_material_path,
+      <%= button_to new_material_path,
                     method: :get,
-                    class: "color-white p-10-20 bg-color-foreground pointer border-none border-rad-5" %>
+                    class: "gap-8 p-10-20 black-button" do %>
+        <%= image_tag "icons/add-white.svg", alt: "add icon", class:"w-16" %>
+        <span>Add Material</span>
+      <% end %>
     <% end %>
     <%= turbo_frame_tag "materials", class: "flex gap-40 flex-wrap mt-30" do %>
-        <% @materials.each do |material| %>
-          <%= render partial: material %>
-        <% end %>
+      <%= render partial: @materials %>
     <% end %>
   </div>
-</div>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="p-20 common-shadow hover:elevated-shadow" border="1 solid color-border rad-5">
+  <div class="flex mb-20 gap-60 align-i-center just-c-space-between">
+    <%= link_to recipe, class: "color-foreground" do %>
+      <h3 class="m-0 w-180"><%= recipe.name.truncate(20) %> (<%= recipe.quantity %> <%= recipe.unit %>)</h3>
+    <% end %>
+    <div class="flex gap-10">
+      <%= button_to "Edit", edit_recipe_path(recipe), method: :get, class: "p-6-12 black-button" %>
+      <%= button_to "Delete", recipe, method: :delete,
+                                      data: { turbo_confirm: 'Are you sure?' },
+                                      class: "p-6-12 white-button" %>
+    </div>
+  </div>
+  <label class="color-secondary-text" font="s-0.9rem">Recipe: <%= recipe.ingredients.count %> ingredients</label>
+</div>

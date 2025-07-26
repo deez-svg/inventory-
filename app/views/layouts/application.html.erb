@@ -28,20 +28,20 @@
   <body>
     <div>
       <div class="w-20p fixed h-100vh bg-color-nav-bg nav-shadow" border="1 solid color-border">
-        <h2 class="p-20 m-0" border-b="1 solid color-border">Inventory Pro</h2>
+        <div class="p-24 gap-8 flex align-i-center" border-b="1 solid color-border">
+          <%= image_tag 'icons/logo.svg', alt: 'Inventory Pro', class: "w-32" %>
+          <h2 class="m-0">Inventory Pro</h2>
+        </div>
         <nav>
           <ul class="no-dots flex column gap-8 p-20" font="s-1.2rem">
-            <li>
-              <%= link_to "Materials", materials_path, class: params[:controller] == 'materials' ? 'current-nav-item' : 'nav-item'  %>
-            </li>
+            <li class="nav-item">Dashboard</li>
             <li>
               <%= link_to "Inventory", stocks_path, class: params[:controller] == 'stocks' ? 'current-nav-item' : 'nav-item' %>
             </li>
-            <li>
-              <%= link_to "Recipes", recipes_path, class: params[:controller] == 'recipes' ? 'current-nav-item' : 'nav-item' %>
-            </li>
             <li class="nav-item">Production</li>
-            <li class="nav-item">Dashboard</li>
+            <li>
+              <%= link_to "Settings", materials_path, class: %w[materials recipes].include?(params[:controller]) ? 'current-nav-item' : 'nav-item'  %>
+            </li>
           </ul>
         </nav>
       </div>

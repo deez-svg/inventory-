@@ -1,8 +1,8 @@
 <%= turbo_frame_tag dom_id(material) do %>
-  <div class="p-20 max-needed-width inline-block common-shadow" border="1 solid color-border rad-4">
-    <div class="flex gap-90">
+  <div class="p-20 max-needed-width inline-block common-shadow hover:elevated-shadow" border="1 solid color-border rad-4">
+    <div class="flex gap-40">
       <div>
-        <h3 class="m-0-0-44 inline-block"><%= material.name %></h3>
+        <h3 class="m-0-0-44 inline-block w-200"><%= material.name.truncate(20) %></h3>
         <div class="flex column gap-30 w-100p">
           <div>
             <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">current stock</label>
@@ -18,17 +18,13 @@
           </div>
         </div>
       </div>
-      <div class="flex column just-c-space-between">
-        <div class="flex gap-10">
+      <div class="flex column just-c-space-between w-133">
+        <div class="flex gap-10 just-c-center">
           <%= button_to 'Edit', edit_material_path(material), method: :get,
-                        class: "bg-color-foreground color-white p-6-12 \
-                                border-color-foreground font-size-1rem pointer",
-                        border: "1 solid" %>
+                        class: "p-6-12 black-button" %>
           <%= button_to 'Delete', material_path(material), method: :delete,
                         data: { turbo_confirm: 'Are you sure?' },
-                        class: "bg-color-white color-foreground p-6-12 \
-                                border-color-foreground font-s-1rem pointer",
-                        border: "1 solid" %>
+                        class: "p-6-12 white-button" %>
         </div>
         <div class="flex align-i-baseline just-c-center">
           <label class="color-secondary-text inline-block mb-8" font="s-0.9rem">Status:&ensp;&ensp;</label>

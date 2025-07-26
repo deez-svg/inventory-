@@ -1,0 +1,72 @@
+<div border="1 solid color-border rad-10" class="p-10-20-40 bg-color-form-background">
+  <%= form_with(model: recipe, local: true,
+                data: { controller: "recipe-form",
+                        recipe_form_ingredients_count_value: recipe.id ? recipe.ingredients.count : 1,
+                        recipe_form_material_data_outlet: ".material-data" }) do |form| %>
+    <div class="flex w-100p just-c-space-between align-i-baseline">
+      <h3 class="color-form-title"><%= title %></h3>
+      <div class="flex gap-12">
+        <%= form.submit commit, class: "p-10-12 black-button" %>
+        <%= link_to "Cancel", recipes_path, class: "p-10-12 white-button font-s-0.9rem color-foreground" %>
+      </div>
+    </div>
+    <div class="p-0-10 mt-40">
+      <%= form.label :name, class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
+      <%= form.text_field :name,
+                          class: "no-outline block p-4-8 font-s-1.1rem font-w-500 w-200 bd-1 bd-solid bd-color-foreground bd-rad-5",
+                          required: true %>
+    </div>
+    <%= form.hidden_field :kind %>
+    <div class="flex row gap-70 p-30-10">
+      <div>
+        <%= form.label :quantity, "Minimum Quantity", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
+        <%= form.number_field :quantity, class: "block w-75 no-outline font-s-1rem", min: 0, step: "any", required: true %>
+      </div>
+      <div>
+        <%= form.label :unit, class: "color-secondary-text inline-block mb-6 font-s-0.9rem" %>
+        <%= form.select :unit, options_for_select(Recipe::UNITS, selected: recipe.unit), {}, {class: "block font-s-1rem" } %>
+      </div>
+    </div>
+    <hr class="bd-color-white"/>
+    <div class="flex just-c-center w-100p -mb-20">
+      <h4 class="bg-color-form-background color-secondary-text relative p-0-5 b-40 inline-block">Ingredients</h4>
+    </div>
+    <div class="flex gap-30 wrap" data-recipe-form-target="ingredientsContainer">
+      <%= form.fields_for :ingredients do |ingredient_form| %>
+        <div class="ingredient bg-color-white bd-rad-10 p-24-24-28 flex row align-i-center just-c-space-between">
+          <div class="flex row gap-24 align-i-center">
+            <div font="s-1.1rem w-600">
+              <%= ingredient_form.select :material_id, materials.map { [it.name, it.id] },
+                                          { include_blank: true, prompt: "Choose Material..." },
+                                          { class: "block font-s-1rem w-200 p-4-10", required: true,
+                                            data: { action: "change->recipe-form#updateUnit" } } %>
+            </div>
+            <div>
+              <%= ingredient_form.number_field :quantity, class: "block w-75 no-outline font-s-1rem", min: 1, step: "any", required: true %>
+              <label class="material-unit font-s-0.85rem color-secondary-text inline-block absolute">unit: </label>
+            </div>
+            <a href="#"
+               data-action="click->recipe-form#removeIngredient:prevent"
+               class="white-button bd-none">
+              <%= image_tag "icons/trash.svg", alt: "Delete Ingredient", class: "w-20" %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="flex mt-30 w-100p">
+      <a href="#"
+         data-action="click->recipe-form#addIngredient:prevent"
+         class="white-button p-6-12 flex align-i-center gap-10 color-foreground font-w-600 font-s-0.9rem">
+        <%= image_tag "icons/add-black.svg", alt: "Add Ingredient", class: "w-20" %>
+        <span>Add Ingredient</span>
+      </a>
+    </div>
+    <% materials.each do |material| %>
+      <div class="material-data no-display"
+           data-controller="material-data"
+           data-material-data-unit-value="<%= material.unit %>"
+           data-material-data-id-value="<%= material.id %>"></div>
+    <% end %>
+  <% end %>
+</div>

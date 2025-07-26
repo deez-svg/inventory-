@@ -22,7 +22,9 @@ export default defineConfig({
   presets: [presetMini(), presetAttributify()],
   shortcuts: [
     { "nav-item": "p-16 hover:bg-color-nav-item-hover pointer bd-rad-10 block color-black font-w-500" },
-    { "current-nav-item": "p-16 bg-color-active-nav-item-bg pointer bd-rad-10 block font-w-500 strict:color-active-nav-item-fg bd-r-3 bd-r-solid bd-r-color-active-nav-item-fg" }
+    { "current-nav-item": "p-16 bg-color-active-nav-item-bg pointer bd-rad-10 block font-w-500 strict:color-active-nav-item-fg bd-r-3 bd-r-solid bd-r-color-active-nav-item-fg" },
+    { "black-button": "bg-color-foreground color-white bd-1px bd-solid bd-color-foreground bd-rad-5 pointer flex align-i-center hover:bg-color-black-button-hover-bg" },
+    { "white-button": "bg-color-white bd-1px bd-solid bd-color-foreground bd-rad-5 pointer flex align-i-center hover:bg-color-white-button-hover-bg" }
   ],
   variants: [
     (matcher) => {

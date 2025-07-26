@@ -1,17 +1,16 @@
 <div class="p-20 inline-block bg-color-form-background common-shadow" border="1 solid color-border rad-4">
   <%= form_with(model: material, local: true) do |form| %>
-    <div class="flex gap-68">
+    <div class="flex gap-65">
       <div>
         <div class="mb-35">
             <%= form.text_field :name, placeholder: "Name",
-                                class: "no-outline p-4-8 font-s-1.1rem font-w-500 w-100 bd-1 bd-solid bd-color-foreground",
+                                class: "no-outline p-4-8 font-s-1.1rem font-w-500 w-133 bd-1 bd-solid bd-color-foreground bd-rad-5",
                                 required: true %>
         </div>
         <div class="flex column gap-27 w-100p">
           <%= form.fields_for :stock do |stock_form| %>
             <div>
               <%= stock_form.label :current, "Current Stock", class: "color-secondary-text inline-block mb-8", font: "s-0.9rem" %>
-              <br/>
               <%= stock_form.number_field :current, class: "block w-75 no-outline font-s-1rem", min: 0, step: "any" %>
             </div>
 
@@ -30,12 +29,8 @@
       <div class="flex column just-c-space-between">
         <div>
           <div class="flex gap-5 mb-18">
-            <%= form.submit commit, class: "bg-color-foreground color-white p-6-12 \
-                                              border-color-foreground font-size-1rem",
-                                      border: "1 solid" %>
-            <%= link_to "Cancel", materials_path, class: "bg-color-white color-foreground p-6-12 \
-                                                            border-color-foreground",
-                                                  border: "1 solid" %>
+            <%= form.submit commit, class: "p-6-12 black-button" %>
+            <%= link_to "Cancel", materials_path, class: "p-6-12 font-s-0.9rem white-button color-foreground" %>
           </div>
           <%= turbo_frame_tag "material_errors" do %>
             <div class="color-error-text w-158px">
@@ -51,7 +46,7 @@
           <% end %>
         </div>
         <div>
-          <%= form.label :unit, "Unit:", class: "color-secondary-text inline-block mb-6 font-s-0.9rem" %>
+          <%= form.label :unit, class: "color-secondary-text inline-block mb-6 font-s-0.9rem" %>
           <%= form.select :unit, options_for_select(Material::UNITS, selected: material.unit), {}, {class: "block font-s-1rem" } %>
         </div>
       </div>

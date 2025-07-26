@@ -1,0 +1,9 @@
+<%= render layout: 'layouts/settings' do %>
+  <div class="p-10-20-40 bg-color-white common-shadow mt-24" border="1 solid color-border rad-5">
+    <div class="flex gap-8 row align-i-center">
+      <%= image_tag "icons/recipe-black.svg", alt: "recipe icon", class:"w-20" %>
+      <h2>Recipe Management</h2>
+    </div>
+    <%= yield %>
+  </div>
+<% end %>

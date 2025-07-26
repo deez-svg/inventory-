@@ -1,0 +1,4 @@
+<%= render layout: 'recipe_layout' do %>
+  <%= render partial: "form", locals: { recipe: @recipe, materials: @materials,
+                                        title: "Add New #{@recipe.kind.capitalize}", commit: "Create Recipe" } %>
+<% end %>
